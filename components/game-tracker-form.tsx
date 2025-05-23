@@ -1,6 +1,5 @@
 "use client";
 
-import { MARVEL_CHAMPIONS_GAME_TRACKER_KEY } from "@/constants/constants";
 import { useGameTrackerStore } from "@/providers/game-tracker-store-provider";
 import { Hero } from "@/types/hero";
 import { Villain } from "@/types/villain";
@@ -18,33 +17,7 @@ type GameTrackerFormProps = {
   villains: Array<Villain>;
 };
 
-// const {
-//   selectedHero,
-//   selectedVillain,
-//   gameResult,
-//   selectedHeroOption,
-//   selectedVillainOption,
-//   setHero,
-//   setVillain,
-//   setGameResult,
-//   saveTrack,
-//   setHeroOption,
-//   setVillainOption,
-// } = useGameTrackerStore((state) => ({
-//   selectedHero: state.selectedHero,
-//   selectedVillain: state.selectedVillain,
-//   gameResult: state.gameResult,
-//   selectedHeroOption: state.selectedHeroOption,
-//   selectedVillainOption: state.selectedVillainOption,
-//   setHero: state.setHero,
-//   setVillain: state.setVillain,
-//   setGameResult: state.setGameResult,
-//   saveTrack: state.saveTrack,
-//   setHeroOption: state.setHeroOption,
-//   setVillainOption: state.setVillainOption,
-// }));
-
-const GameTrackerForm: FC<any> = ({
+const GameTrackerForm: FC<GameTrackerFormProps> = ({
   heroes,
   villains,
 }: GameTrackerFormProps): ReactElement => {
