@@ -1,11 +1,9 @@
 "use client";
 
-import { GameTrackerEntry } from "@/types/game-tracker-entry";
 import { AgGridReact } from "ag-grid-react";
 import type { ColDef } from "ag-grid-community";
 import { FC, ReactElement, useEffect } from "react";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
-import { TABLE_DATE_FORMAT } from "@/constants/constants";
 import { useGameTrackerStore } from "@/providers/game-tracker-store-provider";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -27,7 +25,12 @@ const GameTrackerGrid: FC<any> = (): ReactElement => {
       loadGameTrackerEntries();
       setGameTrackerFirstLoad(false);
     }
-  }, [rowData]);
+  }, [
+    gameTrackerFirstLoad,
+    rowData,
+    loadGameTrackerEntries,
+    setGameTrackerFirstLoad,
+  ]);
 
   const columnDefs: ColDef[] = [
     {
